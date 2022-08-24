@@ -1,5 +1,11 @@
 <h1>Create a new user</h1>
 
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 <%= form_with url: "/users/new", method: :get do |f| %>
   <%= f.label :name, "Name:" %>
   <%= f.text_field :name %>
