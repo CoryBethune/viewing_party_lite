@@ -18,10 +18,10 @@
     <li><a href="#techical-requirements"> ➤ Technical Requirements</a></li>
     <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
     <li><a href="#getting-started"> ➤ Getting Started</a></li>
-    <li><a href="#scenario1"> ➤ Scenario 1: Encrypting a Message (no date and key provided) </a></li>
-    <li><a href="#scenario2"> ➤ Scenario 2: Decrypt an Encrypted File </a></li>
-    <li><a href="#scenario3"> ➤ Scenario 3: Encrypt a Message (key provided)  </a></li>
-    <li><a href="#scenario4"> ➤ Scenario 4: Scenario 4: Encrypt a Message (date provided)</a></li>
+    <li><a href="#scenario1"> ➤ Scenario 1: Create a New User </a></li>
+    <li><a href="#scenario2"> ➤ Scenario 2: Discover Movies </a></li>
+    <li><a href="#scenario3"> ➤ Scenario 3: Create a Viewing Party  </a></li>
+    <li><a href="#scenario4"> ➤ Scenario 4: View User Dashboard</a></li>
     <li><a href="#credits"> ➤ Credits</a></li>
   </ol>
 </details>
@@ -100,9 +100,9 @@
 <pre><code>$ bundle exec faraday install</code></pre>
 
 <p><b>9. </b> Signup for an <a href="https://developers.themoviedb.org/3/getting-started/introduction"> API Key</a> on The Movie Database</a>. Add Key to config/application.yml file</p>
-<pre><code>movie_api_key: <your key></code></pre>
+<pre><code>movie_api_key: <i>your key goes here</i></code></pre>
 
-<p><b>10. </b> Run migrations.</a>.</p>
+<p><b>10. </b> Run migrations</p>
 <pre><code>$ rails db:{create,migrate,seed}</code></pre>
 
 <p><b>11. </b> Initiate the application on your local server</a>.</p>
@@ -112,11 +112,13 @@
 <pre><code>localhost:3000</code></pre>
 
 
+
 <!-- SCENARIO1 -->
-<h2 id="scenario1"> :small_orange_diamond: Scenario 1: Creating a New User</h2>
+<h2 id="scenario1"> :small_orange_diamond: Scenario 1: Create a New User</h2>
 <p>A new user can be created and stored in the database.  Validations exist to prevent multiple users registered with the same email address.</p>
 
-![Step 1](https://user-images.githubusercontent.com/95776577/188295779-f02b9033-b4d8-4640-b43f-a6eed7937c57.gif)
+![step 1-1](https://user-images.githubusercontent.com/95776577/188297760-5b9c7bd5-0b87-4dd6-ac7a-8fd708ff9215.gif)
+
 
 <!-- SCENARIO2 -->
 <h2 id="scenario2"> :small_orange_diamond: Scenario 2: Discover Movies </h2>
@@ -133,7 +135,7 @@
 ![step 3](https://user-images.githubusercontent.com/95776577/188296382-4d1656c0-a27a-44c2-ba90-ff262ab24d21.gif)
 
 <!-- SCENARIO4 -->
-<h2 id="scenario4"> :small_orange_diamond: Scenario 4: Viewing User Dashboard </h2>
+<h2 id="scenario4"> :small_orange_diamond: Scenario 4: View User Dashboard </h2>
 <p>A user can view the viewing parties they are hosting, as well as the parties they have been invited to.</p>
 
 ![step 4](https://user-images.githubusercontent.com/95776577/188296671-a1de8a83-b5a5-4099-853c-a167471fa152.gif)
