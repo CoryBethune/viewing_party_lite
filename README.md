@@ -17,6 +17,7 @@
   <ol>
     <li><a href="#techical-requirements"> ➤ Technical Requirements</a></li>
     <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
+    <li><a href="#db-schema"> ➤ Database Schema</a></li>
     <li><a href="#getting-started"> ➤ Getting Started</a></li>
     <li><a href="#scenario1"> ➤ Scenario 1: Create a New User </a></li>
     <li><a href="#scenario2"> ➤ Scenario 2: Discover Movies </a></li>
@@ -71,6 +72,12 @@
   <li><i>spec/fixtures/vcr_cassettes</i><ol>
   <li>Subfolder that contains mocked data used in tests to prevent API endpoint calls every time testing suite is run</li></ol>
 </ul>
+
+<!-- DATABASE SCHEMA -->
+<h2 id="db-schema"> :desktop_computer: Database Schema</h2>
+
+<img width="550" alt="Screen Shot 2022-09-04 at 11 14 18 AM" src="https://user-images.githubusercontent.com/95776577/188320839-d7920f97-d9dd-410e-b64c-f41e128084ed.png">
+
 
 <!-- GETTING STARTED -->
 <h2 id="getting-started"> :book: Getting Started</h2>
