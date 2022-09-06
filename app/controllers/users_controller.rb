@@ -4,15 +4,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    if User.all_emails.include?(params[:email])
-      redirect_to "/register", notice: "This e-mail is already in use. Please use another."
-    else
-      new = User.create(name: params[:name], email: params[:email])
-      redirect_to "/users/#{new.id}"
-    end
+    @user = User.new
   end
 
-  def register
+  def create
+    user = User.new(user_params)
+    if user.save
+      redirect_to "/users/#{user.id}"
+      flash[:success] = "Welcome, #{user.email}!"
+    else
+      redirect_to '/users/new'
+      flash[:error] = user.errors.full_messages
+    end
   end
 
   def show
@@ -21,5 +24,10 @@ class UsersController < ApplicationController
 
   def discover
     @user = User.find(params[:user_id])
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

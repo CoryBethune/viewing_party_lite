@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: 'users#landing'
-  get "/register", to: 'users#register'
+  root 'users#landing'
   resources :users, only: [:new, :create]
   get '/users/:user_id', to: 'users#show'
   get '/users/:user_id/discover', to: 'users#discover'
