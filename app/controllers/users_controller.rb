@@ -3,6 +3,17 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def login_form
+
+  end
+
+  def login_user
+    user = User.find_by(email: params[:email])
+    require 'pry'; binding.pry 
+    flash[:success] = "Welcome, #{user.email}!"
+    redirect_to root_path
+  end
+
   def new
     @user = User.new
   end

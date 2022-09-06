@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'users#landing'
+  get '/login', to: 'users#login_form'
+  post '/login', to: 'users#login_user'
   resources :users, only: [:new, :create]
   get '/users/:user_id', to: 'users#show'
   get '/users/:user_id/discover', to: 'users#discover'
