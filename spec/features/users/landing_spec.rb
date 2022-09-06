@@ -26,6 +26,22 @@ RSpec.describe 'landing page' do
     expect(page).to have_content("Welcome, #{user.email}")
   end
 
+it "cannot log in with bad credentials" do
+  user = User.create(name: 'John', email: "funbucket13", password: "test")
+
+  # we don't have to go through root_path and click the "I have an account" link any more
+  visit login_path
+
+  fill_in :email, with: user.email
+  fill_in :password, with: "incorrect password"
+
+  click_on "Log In"
+
+  expect(current_path).to eq(login_path)
+
+  expect(page).to have_content("Sorry, your credentials are bad.")
+end
+
   xit "displays the app title" do
     expect(page).to have_content("Viewing Party Lite")
   end
