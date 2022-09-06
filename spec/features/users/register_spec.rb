@@ -6,15 +6,18 @@ RSpec.describe 'register page' do
   end
 
   it "has a form with name and email fields and a register button" do
-    username = "funbucket13"
+    name = "funbucket13@gmail.com"
     password = "test"
 
-    fill_in :username, with: username
+    fill_in :name, with: name
     fill_in :password, with: password
 
-    click_on "Create User"
+    click_on "Register"
+
+    expect(current_path).to eq()
+  end
     
-  it "won't let you register with an e-mail that is already connected to a registered account" do
+  xit "won't let you register with an e-mail that is already connected to a registered account" do
     @user1 = User.create!(name: 'Cory', email: 'Cory@gmail.com')
 
     fill_in 'Name' , with: 'Cory'

@@ -12,6 +12,15 @@ RSpec.describe User, :type => :model do
     it {should have_secure_password}
   end
 
+  describe 'class methods' do
+    it 'creates a new user' do
+      @user = User.create(name: 'Meg', email: 'meg@test.com', password: 'password123', password_confirmation: 'password123')
+      require 'pry'; binding.pry 
+      expect(@user).to_not have_attribute(:password)
+      expect(@user.password_digest).to_not eq('password123')
+    end
+  end
+
   # before(:each) do
   #   @user1 = User.create!(name: "Cory", email: 'Cory@gmail.com')
   #   @user1 = User.create!(name: "John", email: 'John@gmail.com')
