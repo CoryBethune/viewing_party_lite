@@ -2,12 +2,13 @@ require 'bcrypt'
 
 class User < ApplicationRecord
   include BCrypt
-  has_secure_password
   has_many :user_parties
   has_many :parties, through: :user_parties
 
-  validates :name, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, uniqueness: true, presence: true
+  validates_presence_of :password
+
+  has_secure_password
 
   def self.all_emails
     emails = []
