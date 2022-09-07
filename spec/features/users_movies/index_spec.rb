@@ -6,7 +6,7 @@ RSpec.describe 'Index', type: :feature do
   end
 
   it "has a title of each movie as a link, that when clicked, takes the user to that movies details page", :vcr do
-    user_1 = User.create(name: 'John Doe', email: 'John@gmail.com')
+    user_1 = User.create(name: 'John Doe', email: 'John@gmail.com', password: '6789')
 
     visit "/users/#{user_1.id}/discover"
 

@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'landing page' do
-  # before(:each) do
-  #   @user1 = User.create!(name: "Cory", email: '1@gmail.com')
-  #   @user2 = User.create!(name: "John", email: '2@gmail.com')
-
-  #   visit '/'
-  # end
 
   it "can log in with valid credentials" do
     user = User.create(name: 'John', email: "funbucket13@gmail.com", password: "test")
@@ -42,16 +36,18 @@ it "cannot log in with bad credentials" do
   expect(page).to have_content("Sorry, your credentials are bad.")
 end
 
-  xit "displays the app title" do
+  it "displays the app title" do
+    visit '/'
     expect(page).to have_content("Viewing Party Lite")
   end
 
-  xit "has a button to create a new user" do
-    click_link('Create New User')
-    expect(current_path).to eq('/register')
-  end
 
-  xit "has a list of existing users and links to their dashboards" do
+  it "has a list of existing users and links to their dashboards" do
+    @user1 = User.create!(name: "Cory", email: '1@gmail.com', password: '12345')
+    @user2 = User.create!(name: "John", email: '2@gmail.com', password: '12345')
+
+    visit '/'
+
     within("div#user#{@user1.id}") do
       expect(page).to have_content("Cory")
       expect(page).to have_content("1@gmail.com")
@@ -60,6 +56,7 @@ end
     end
 
     visit "/"
+
     within("div#user#{@user2.id}") do
       expect(page).to have_content("John")
       expect(page).to have_content("2@gmail.com")
@@ -68,8 +65,11 @@ end
     end
   end
 
-  xit "has a link to return to the landing page" do
+  it "has a link to return to the landing page" do
+    visit '/'
+
     click_link('Landing Page')
+
     expect(current_path).to eq('/')
   end
 end

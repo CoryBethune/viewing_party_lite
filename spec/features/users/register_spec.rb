@@ -16,6 +16,7 @@ RSpec.describe 'register page' do
     fill_in :user_password_confirmation, with: password
   
     click_on "Register"
+
     expect(page).to have_content("Welcome, #{email}!")
   
   end
