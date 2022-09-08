@@ -1,15 +1,18 @@
 <h1>Viewing Party Lite</h1>
 
-<%= link_to "Create New User", "/users/new" %>
-
-<%= link_to "I already have an account", "/login" %>
-
-<h3>Existing Users</h3>
-
+<% if !current_user %>
+  <p>you are logged in!</p>
+  <%= link_to "Log out", '/logout', method: :delete %>
+  <h3>Existing Users</h3>
 <% @users.each do |user| %>
-
   <div id = 'user<%= user.id %>'>
-    <p>Name: <%= link_to "#{user.name}", "/users/#{user.id}" %></p>
     <p>E-mail: <%= user.email %></p>
   </div>
 <% end %>
+<%  else %>
+<%= link_to "Create New User", "/users/new" %>
+<%= link_to "I already have an account", "/login" %>
+<% end %>
+
+
+

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root 'users#landing'
-  get '/login', to: 'users#login_form'
-  post '/login', to: 'users#login_user'
   resources :users, only: [:new, :create]
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   get '/users/:user_id', to: 'users#show'
   get '/users/:user_id/discover', to: 'users#discover'
   get '/users/:user_id/movies', to: 'users_movies#index'

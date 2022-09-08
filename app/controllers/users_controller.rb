@@ -1,23 +1,21 @@
 class UsersController < ApplicationController
   def landing
-    @users = User.all
+    
   end
 
   def login_form
-
   end
 
-def login_user
-  user = User.find_by(email: params[:email])
-  if user.authenticate(params[:password])
-    session[:user_id] = user.id
-    flash[:success] = "Welcome, #{user.email}!"
-    redirect_to root_path
-  else
-    flash[:error] = "Sorry, your credentials are bad."
-    render :login_form
+  def login
+    user = User.find_by(email: params[:email])
+    if user&.authenticate(params[:password])
+      redirect_to root_path
+      flash[:success] = "Welcome back, #{user.email}!"
+    else
+      redirect_to '/login'
+      flash[:error] = 'Invalid Credentials'
+    end
   end
-end
 
   def new
     @user = User.new

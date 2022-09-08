@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates_presence_of :name
 
   has_secure_password
+  enum role: %w(default manager admin)
 
   def self.all_emails
     emails = []
